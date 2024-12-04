@@ -4,7 +4,7 @@ const ObjectId = Schema.ObjectId;
 const SinhVien = new Schema({
     id: { type: ObjectId },
     MSSV: { type: String },
-    HoTen: { tyoe: String },
+    HoTen: { type: String },
     DTB: { type: String },
     BoMon: { type: String },
     Tuoi: { type: Number }

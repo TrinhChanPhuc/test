@@ -9,6 +9,8 @@ require('./models/users');
 require('./models/product');
 require('./models/category');
 require('./models/SinhVien');
+require('./models/channel');
+require('./models/video');
 
 mongoose.connect('mongodb+srv://trinhchanphuc123:Ui5yQVJKWO22rVV0@cluster0.w6qcd.mongodb.net/test')
   .then(() => console.log('>>>>>>>>>> DB Connected!!!!!!'))
@@ -19,6 +21,7 @@ var usersRouter = require('./routes/users');
 var ProductRouter = require('./routes/Product');
 var uploadRouter = require('./routes/upload');
 var sendGmailRouter = require('./routes/sendGmail');
+var asmRouter = require('./routes/asm');
 
 var app = express();
 
@@ -36,6 +39,7 @@ app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/upload', uploadRouter);
 app.use('/sendEmail', sendGmailRouter);
+app.use('/asm', asmRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
