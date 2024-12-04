@@ -9,8 +9,7 @@ router.get("/allChannel", async function(res, req) {
         var list = await channelModel.find();
         res.status(200).json(list);
     } catch (error) {
-        console.log(error);
-        // res.status(400).json({status: false, message: "error" + error});
+        res.status(400).json({status: false, message: "error" + error});
     }
 });
 
