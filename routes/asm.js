@@ -7,7 +7,7 @@ var channelModel = require("../models/channel");
 router.get("/allChannel", async function(res, req) {
     try {
         var list = await channelModel.find();
-        res.status(200).json(list);
+        res.status(200).json({status: true, message: "Thành công", data: list});
     } catch (error) {
         res.status(400).json({status: false, message: "error" + error});
     }
