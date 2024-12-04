@@ -8,7 +8,7 @@ const video = new Schema({
     title: { type: String },
     type: { type: String },
     videoLink: { type: String },
-    views: { type: String },
+    views: { type: Number },
     channelID: { type: ObjectId, ref: 'channel' },
 });
 module.exports = mongoose.models.video || mongoose.model('video', video);
