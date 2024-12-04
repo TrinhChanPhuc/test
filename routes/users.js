@@ -78,7 +78,7 @@ const config = require("../utils/tokenConfig");
   router.get('/bai1', async function(req, res) {
     try {
       var list = await SvModel.find();
-      res.status(200).json(list);
+      res.status(200).json({status: true, message: "Thành công", data: list});
     } catch (error) {
       res.status(400).json({status: false, message: "error" + error});
     }
