@@ -60,27 +60,28 @@ const config = require("../utils/tokenConfig");
 // });
 
 
-router.get('/bai1', async function(req, res) {
-  const token = req.header("Authorization").split(' ')[1];
-  if(token){
-    JWT.verify(token, config.SECRETKEY, async function (err, id){
-      if(err){
-        res.status(403).json({status: false, message: 'Có lỗi xảy ra: ' + err});
-      }else{
-        var list = await SvModel.find();
-        res.status(200).json(list);
-      }
-    });
-  }else{
-    res.status(401).json({status: false, message: "Không xác thực"});
-  }
+// router.get('/bai1', async function(req, res) {
+//   const token = req.header("Authorization").split(' ')[1];
+//   if(token){
+//     JWT.verify(token, config.SECRETKEY, async function (err, id){
+//       if(err){
+//         res.status(403).json({status: false, message: 'Có lỗi xảy ra: ' + err});
+//       }else{
+//         var list = await SvModel.find();
+//         res.status(200).json(list);
+//       }
+//     });
+//   }else{
+//     res.status(401).json({status: false, message: "Không xác thực"});
+//   }
 
-  // try {
-  //   var list = await SvModel.find();
-  //   res.status(200).json(list);
-  // } catch (error) {
-  //   res.status(400).json({status: false, message: "error" + error});
-  // }
+  router.get('/bai1', async function(req, res) {
+    try {
+      var list = await SvModel.find();
+      res.status(200).json(list);
+    } catch (error) {
+      res.status(400).json({status: false, message: "error" + error});
+    }
 });
 router.get('/bai2', async function(req, res) {
   const token = req.header("Authorization").split(' ')[1];
